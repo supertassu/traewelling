@@ -11,10 +11,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * @property $stopovers
+ * @property          $stopovers
  * @property PolyLine $polyLine
  * @property PolyLine $polyline
- * @property $linename
+ * @property          $linename
+ *
+ * @todo rename table only to "Trip" (without Hafas)
+ * @todo rename "linename" to "line_name" (or something else, but not "linename")
+ * @todo migrate origin & destination to use "id" instead of "ibnr" and rename to "origin_id" & "destination_id"
  */
 class HafasTrip extends Model
 {

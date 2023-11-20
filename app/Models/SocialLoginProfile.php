@@ -6,6 +6,11 @@ use App\Enum\MastodonVisibility;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @todo remove twitter_token, _tokenSecret, _refresh_token, _token_expires_at - they are not used anymore
+ *       don't remove twitter_id, so we can still identify users which have logged in with twitter and migrate them!
+ *       (~kris 2022-11-20)
+ */
 class SocialLoginProfile extends Model
 {
 

@@ -1,12 +1,13 @@
 /**
  * Here, we include all of our external dependencies
  */
-import { Notyf } from 'notyf';
-import { createApp } from 'vue';
+import {Notyf} from 'notyf';
+import {createApp} from 'vue';
 import NotificationBell from "../vue/components/NotificationBell.vue";
 import ActiveJourneyMap from "../vue/components/ActiveJourneyMap.vue";
 import Stationboard from "../vue/components/Stationboard.vue";
 import StationAutocomplete from "../vue/components/StationAutocomplete.vue";
+import FormTripCreate from "../vue/components/FormTripCreate.vue";
 import "./bootstrap";
 import "awesomplete/awesomplete";
 import "leaflet/dist/leaflet.js";
@@ -16,7 +17,7 @@ import CheckinSuccessHelper from "../vue/components/CheckinSuccessHelper.vue";
 
 window.notyf = new Notyf({
     duration: 5000,
-    position: { x: "right", y: window.innerWidth > 480 ? "top" : "bottom" },
+    position: {x: "right", y: window.innerWidth > 480 ? "top" : "bottom"},
     dismissible: true,
     ripple: true,
     types: [
@@ -41,7 +42,7 @@ window.notyf = new Notyf({
     ],
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     const app = createApp({});
     app.component('NotificationBell', NotificationBell);
@@ -61,6 +62,9 @@ document.addEventListener("DOMContentLoaded", function() {
     app4.component('CheckinSuccessHelper', CheckinSuccessHelper);
     app4.mount('#checkin-success-helper');
 
+    const app5 = createApp({});
+    app5.component('FormTripCreate', FormTripCreate);
+    app5.mount('#container-form-trip-create');
 });
 
 /**

@@ -124,6 +124,12 @@ Route::get('/ics', [IcsController::class, 'renderIcs'])
  * All of these routes can only be used by fully registered users.
  */
 Route::middleware(['auth', 'privacy'])->group(function() {
+    Route::prefix('beta')->middleware(['userrole:5'])->group(static function() { //TODO: replace with real permission system - e.g. spatie/laravel-permission
+        Route::view('/trip/create', 'beta.trip-create')
+             ->name('beta.trip.create');
+    });
+
+
     Route::get('year-in-review', [YearInReviewController::class, 'show']);
 
     Route::post('/ics/createToken', [IcsController::class, 'createIcsToken'])
