@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Casts\UTCDateTime;
 use App\Enum\HafasTravelType;
+use App\Enum\TripSource;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -27,7 +28,7 @@ class HafasTrip extends Model
 
     protected $fillable = [
         'trip_id', 'category', 'number', 'linename', 'journey_number', 'operator_id', 'origin', 'destination',
-        'polyline_id', 'departure', 'arrival', 'delay', 'last_refreshed',
+        'polyline_id', 'departure', 'arrival', 'delay', 'source', 'last_refreshed',
     ];
     protected $hidden   = ['created_at', 'updated_at'];
     protected $casts    = [
@@ -42,6 +43,7 @@ class HafasTrip extends Model
         'departure'      => UTCDateTime::class,
         'arrival'        => UTCDateTime::class,
         'last_refreshed' => 'datetime',
+        'source'         => TripSource::class,
     ];
 
     public function polyline(): HasOne {
